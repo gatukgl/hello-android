@@ -19,7 +19,10 @@ class OneActivity : BaseNavigationActivity() {
 
     private fun setUpView() {
         binding.btnNext.setOnClickListener {
+            val name = binding.editName.text.toString()
+
             val intent  = Intent(this, TwoActivity::class.java)
+            intent.putExtra("name", name)
             startActivity(intent)
             finish() // This function use for destroy one activity from view stack
         }
