@@ -1,9 +1,7 @@
 package com.example.myandroid.navigation
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.myandroid.R
 import com.example.myandroid.databinding.ActivityOneBinding
 
 class OneActivity : BaseNavigationActivity() {
@@ -19,11 +17,13 @@ class OneActivity : BaseNavigationActivity() {
 
     private fun setUpView() {
         binding.btnNext.setOnClickListener {
-            val name = binding.editName.text.toString()
 
+            val name = binding.editName.text.toString()
             val intent  = Intent(this, TwoActivity::class.java)
-            intent.putExtra("name", name)
-            startActivity(intent)
+//            intent.putExtra("name", name)
+//            startActivity(intent)
+            val twoModel = TwoModel(name = name)
+            TwoActivity.startIntent(this, twoModel)
             finish() // This function use for destroy one activity from view stack
         }
     }
